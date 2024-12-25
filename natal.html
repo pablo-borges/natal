@@ -1,122 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Natal, Equipe!</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(145deg, #004d40, #00796b);
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            perspective: 1000px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Feliz Natal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: radial-gradient(circle, #0d1b2a, #1b263b, #415a77);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
 
-        .container {
-            text-align: center;
-            transform: rotateX(10deg);
-            animation: float 3s ease-in-out infinite;
-        }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 30px;
+      color: #FFD700;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.6);
+    }
 
-        @keyframes float {
-            0%, 100% {
-                transform: rotateX(10deg) translateY(0);
-            }
-            50% {
-                transform: rotateX(10deg) translateY(-10px);
-            }
-        }
+    .moving-message {
+      position: relative;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #FFD700;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 0, 0, 0.6);
+      animation: heartbeat 2s ease-in-out infinite;
+      margin-bottom: 40px;
+    }
 
-        h1 {
-            font-size: 3em;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
-            margin: 0.5em 0;
-        }
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
 
-        .highlight {
-            font-size: 2em;
-            color: #ffcc00;
-            text-shadow: 0 0 5px rgba(255, 204, 0, 0.8), 0 0 10px rgba(255, 204, 0, 0.6);
-        }
+    .snowflake {
+      position: absolute;
+      top: 0;
+      font-size: 1.5rem;
+      color: #fff;
+      opacity: 0.9;
+      animation: fall linear infinite;
+      cursor: pointer;
+    }
 
-        p {
-            font-size: 1.5em;
-            line-height: 1.5;
-        }
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
 
-        .snowflake {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: white;
-            border-radius: 50%;
-            animation: fall linear infinite;
-        }
+    #santa {
+      position: absolute;
+      top: 10%;
+      left: -20%;
+      font-size: 3rem;
+      animation: flyby 10s linear infinite;
+    }
 
-        .santa {
-            position: absolute;
-            bottom: 10%;
-            left: -20%;
-            width: 200px;
-            animation: santaMove 10s linear infinite;
-        }
+    @keyframes flyby {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(120vw);
+      }
+    }
 
-        @keyframes fall {
-            0% {
-                opacity: 1;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(100vh);
-            }
-        }
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 1.2rem;
+      color: #FFD700;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
 
-        @keyframes santaMove {
-            0% {
-                left: -20%;
-            }
-            100% {
-                left: 120%;
-            }
-        }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.5rem;
+      }
 
-    </style>
+      .moving-message {
+        font-size: 1.5rem;
+      }
+
+      footer {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎄 <span class="highlight">Feliz Natal</span>, Equipe de Canoas! 🎄</h1>
-        <p>
-            Desejo a todos um Natal incrível, cheio de alegria e momentos especiais! ❤️
-            Aproveitem para descansar, pois dia 26 as caixas estarão cheias de atividades! 😉
-        </p>
-        <p><strong>Um grande abraço,</strong><br>Supervisor Pablo 🎅</p>
-    </div>
 
-    <!-- Papai Noel com trenó -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Christmas_sleigh_and_reindeer.svg/1024px-Christmas_sleigh_and_reindeer.svg.png" class="santa" alt="Papai Noel com trenó">
+  <!-- Música de Natal -->
+  <audio autoplay loop>
+    <source src="https://www.youtube.com/watch?v=X1j-_Iv48l0" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
 
-    <!-- Efeito de neve -->
-    <script>
-        function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.classList.add('snowflake');
-            snowflake.style.left = Math.random() * 100 + 'vw';
-            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
-            document.body.appendChild(snowflake);
+  <!-- Papai Noel animado -->
+  <div id="santa">🎅💨</div>
 
-            setTimeout(() => {
-                snowflake.remove();
-            }, 5000);
-        }
+  <!-- Título principal -->
+  <h1>🎄 Feliz Natal, Equipe! 🎅</h1>
 
-        setInterval(createSnowflake, 100);
-    </script>
+  <!-- Mensagem animada com efeito de coração -->
+  <div class="moving-message">
+    Ho, ho, ho! Que o espírito do Natal traga alegria e risadas. <br><br>
+    Desejo a todos um Natal repleto de paz, luz, amor e com muitas <br>bençãos do menino Jesus. Feliz Natal!! 🎁
+  </div>
+
+  <!-- Flocos de neve -->
+  <script>
+    const createSnowflake = () => {
+      const snowflake = document.createElement("div");
+      snowflake.classList.add("snowflake");
+      snowflake.innerText = "❄";
+      snowflake.style.left = `${Math.random() * 100}vw`;
+      snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      document.body.appendChild(snowflake);
+
+      // Clique remove o floco de neve
+      snowflake.addEventListener("click", () => {
+        snowflake.remove();
+      });
+
+      setTimeout(() => snowflake.remove(), 10000);
+    };
+
+    setInterval(createSnowflake, 200);
+  </script>
+
+  <!-- Rodapé -->
+  <footer>
+    🎉 Que venha 2025 repleto de conquistas, e de flat existente! 🚀
+  </footer>
+
 </body>
 </html>
